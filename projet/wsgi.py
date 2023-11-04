@@ -1,18 +1,12 @@
-"""
-WSGI config for projet project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
-"""
 
 import os
 
 from django.core.wsgi import get_wsgi_application
-settings_module = "projet.settings.deployement" if 'WEBSITE_HOSTNAME' in os.environ else 'projet.settings'
 
+settings_module = "projet.deployement" if 'WEBSITE_HOSTNAME' in os.environ else 'projet.settings'
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projet.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
+
+
